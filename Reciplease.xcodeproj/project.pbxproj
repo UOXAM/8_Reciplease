@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C3806CE4270703F0007D11E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806CE3270703F0007D11E9 /* AppDelegate.swift */; };
 		C3806CE6270703F0007D11E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806CE5270703F0007D11E9 /* SceneDelegate.swift */; };
-		C3806CE8270703F0007D11E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806CE7270703F0007D11E9 /* ViewController.swift */; };
+		C3806CE8270703F0007D11E9 /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806CE7270703F0007D11E9 /* AddIngredientViewController.swift */; };
 		C3806CEB270703F0007D11E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3806CE9270703F0007D11E9 /* Main.storyboard */; };
 		C3806CEE270703F0007D11E9 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3806CEC270703F0007D11E9 /* Reciplease.xcdatamodeld */; };
 		C3806CF0270703F2007D11E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3806CEF270703F2007D11E9 /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		C3806CE0270703F0007D11E9 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3806CE3270703F0007D11E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3806CE5270703F0007D11E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C3806CE7270703F0007D11E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3806CE7270703F0007D11E9 /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
 		C3806CEA270703F0007D11E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3806CED270703F0007D11E9 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		C3806CEF270703F2007D11E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 				C3806CFA270703FC007D11E9 /* View */,
 				C3806CE3270703F0007D11E9 /* AppDelegate.swift */,
 				C3806CE5270703F0007D11E9 /* SceneDelegate.swift */,
-				C3806CE7270703F0007D11E9 /* ViewController.swift */,
+				C3806CE7270703F0007D11E9 /* AddIngredientViewController.swift */,
 				C3806CEF270703F2007D11E9 /* Assets.xcassets */,
 				C3806CF4270703F2007D11E9 /* Info.plist */,
 				C3806CEC270703F0007D11E9 /* Reciplease.xcdatamodeld */,
@@ -149,7 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3806CEE270703F0007D11E9 /* Reciplease.xcdatamodeld in Sources */,
-				C3806CE8270703F0007D11E9 /* ViewController.swift in Sources */,
+				C3806CE8270703F0007D11E9 /* AddIngredientViewController.swift in Sources */,
 				C3806CE4270703F0007D11E9 /* AppDelegate.swift in Sources */,
 				C3806CE6270703F0007D11E9 /* SceneDelegate.swift in Sources */,
 			);
