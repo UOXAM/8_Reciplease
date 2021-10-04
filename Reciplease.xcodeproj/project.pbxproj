@@ -14,6 +14,16 @@
 		C3806CEE270703F0007D11E9 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3806CEC270703F0007D11E9 /* Reciplease.xcdatamodeld */; };
 		C3806CF0270703F2007D11E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3806CEF270703F2007D11E9 /* Assets.xcassets */; };
 		C3806CF3270703F2007D11E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3806CF1270703F2007D11E9 /* LaunchScreen.storyboard */; };
+		C3806CFC27073E54007D11E9 /* RecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806CFB27073E54007D11E9 /* RecipesListViewController.swift */; };
+		C3806D00270A0BC7007D11E9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806CFF270A0BC7007D11E9 /* CoreDataStack.swift */; };
+		C3806D02270A0BF1007D11E9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D01270A0BF1007D11E9 /* CoreDataManager.swift */; };
+		C3806D08270A48F9007D11E9 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D07270A48F9007D11E9 /* ApiKeys.swift */; };
+		C3806D0B270A499B007D11E9 /* URLSession+GenericCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D0A270A499B007D11E9 /* URLSession+GenericCall.swift */; };
+		C3806D0E270A49F5007D11E9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D0D270A49F5007D11E9 /* NetworkError.swift */; };
+		C3806D10270A4A29007D11E9 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D0F270A4A29007D11E9 /* NetworkLogger.swift */; };
+		C3806D13270A4AB2007D11E9 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D12270A4AB2007D11E9 /* RecipeService.swift */; };
+		C3806D15270A4CD4007D11E9 /* URLEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D14270A4CD4007D11E9 /* URLEncodable.swift */; };
+		C3806D17270A4D3A007D11E9 /* RecipeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D16270A4D3A007D11E9 /* RecipeApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +36,16 @@
 		C3806CEF270703F2007D11E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3806CF2270703F2007D11E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3806CF4270703F2007D11E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3806CFB27073E54007D11E9 /* RecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewController.swift; sourceTree = "<group>"; };
+		C3806CFF270A0BC7007D11E9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C3806D01270A0BF1007D11E9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C3806D07270A48F9007D11E9 /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		C3806D0A270A499B007D11E9 /* URLSession+GenericCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+GenericCall.swift"; sourceTree = "<group>"; };
+		C3806D0D270A49F5007D11E9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C3806D0F270A4A29007D11E9 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		C3806D12270A4AB2007D11E9 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
+		C3806D14270A4CD4007D11E9 /* URLEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodable.swift; sourceTree = "<group>"; };
+		C3806D16270A4D3A007D11E9 /* RecipeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +78,17 @@
 		C3806CE2270703F0007D11E9 /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				C3806D11270A4A7E007D11E9 /* Model */,
+				C3806D0C270A49DD007D11E9 /* Network */,
+				C3806D09270A4987007D11E9 /* Extensions */,
+				C3806D06270A48EF007D11E9 /* Resources */,
+				C3806CFE270A0A22007D11E9 /* CoreData */,
+				C3806CFD270A0A00007D11E9 /* Controller */,
 				C3806CFA270703FC007D11E9 /* View */,
 				C3806CE3270703F0007D11E9 /* AppDelegate.swift */,
 				C3806CE5270703F0007D11E9 /* SceneDelegate.swift */,
-				C3806CE7270703F0007D11E9 /* AddIngredientViewController.swift */,
 				C3806CEF270703F2007D11E9 /* Assets.xcassets */,
 				C3806CF4270703F2007D11E9 /* Info.plist */,
-				C3806CEC270703F0007D11E9 /* Reciplease.xcdatamodeld */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -76,6 +100,60 @@
 				C3806CF1270703F2007D11E9 /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C3806CFD270A0A00007D11E9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C3806CFB27073E54007D11E9 /* RecipesListViewController.swift */,
+				C3806CE7270703F0007D11E9 /* AddIngredientViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C3806CFE270A0A22007D11E9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C3806CEC270703F0007D11E9 /* Reciplease.xcdatamodeld */,
+				C3806CFF270A0BC7007D11E9 /* CoreDataStack.swift */,
+				C3806D01270A0BF1007D11E9 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C3806D06270A48EF007D11E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3806D07270A48F9007D11E9 /* ApiKeys.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C3806D09270A4987007D11E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C3806D0A270A499B007D11E9 /* URLSession+GenericCall.swift */,
+				C3806D14270A4CD4007D11E9 /* URLEncodable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C3806D0C270A49DD007D11E9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C3806D0D270A49F5007D11E9 /* NetworkError.swift */,
+				C3806D0F270A4A29007D11E9 /* NetworkLogger.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C3806D11270A4A7E007D11E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3806D12270A4AB2007D11E9 /* RecipeService.swift */,
+				C3806D16270A4D3A007D11E9 /* RecipeApi.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +226,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3806D0B270A499B007D11E9 /* URLSession+GenericCall.swift in Sources */,
 				C3806CEE270703F0007D11E9 /* Reciplease.xcdatamodeld in Sources */,
 				C3806CE8270703F0007D11E9 /* AddIngredientViewController.swift in Sources */,
 				C3806CE4270703F0007D11E9 /* AppDelegate.swift in Sources */,
+				C3806D00270A0BC7007D11E9 /* CoreDataStack.swift in Sources */,
+				C3806D15270A4CD4007D11E9 /* URLEncodable.swift in Sources */,
+				C3806D08270A48F9007D11E9 /* ApiKeys.swift in Sources */,
+				C3806CFC27073E54007D11E9 /* RecipesListViewController.swift in Sources */,
+				C3806D13270A4AB2007D11E9 /* RecipeService.swift in Sources */,
+				C3806D17270A4D3A007D11E9 /* RecipeApi.swift in Sources */,
+				C3806D02270A0BF1007D11E9 /* CoreDataManager.swift in Sources */,
 				C3806CE6270703F0007D11E9 /* SceneDelegate.swift in Sources */,
+				C3806D0E270A49F5007D11E9 /* NetworkError.swift in Sources */,
+				C3806D10270A4A29007D11E9 /* NetworkLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
