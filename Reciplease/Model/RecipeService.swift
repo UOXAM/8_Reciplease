@@ -20,7 +20,7 @@ final class RecipeService {
     private let type = ("type", "public")
     private let appId = ("app_id", ApiEdamamConfig.app_id)
     private let appKey = ("app_key", ApiEdamamConfig.app_key)
-    private let ingredients = ("q", (""))
+    private let ingredients = ("q", "Chicken")
 
     
     // MARK: - Initializer
@@ -32,7 +32,7 @@ final class RecipeService {
 
     // MARK: - Network managment
     
-    func fetchRecipes(ingredient: (String), callback: @escaping (Result<RecipeApi, NetworkError>) -> Void) {
+    func fetchRecipes(callback: @escaping (Result<RecipeApi, NetworkError>) -> Void) {
         guard let baseUrl = URL(string: baseUrl) else {return}
         let parameters = [type, appId, appKey, ingredients]
         let url = encode(baseURL: baseUrl, parameters: parameters)

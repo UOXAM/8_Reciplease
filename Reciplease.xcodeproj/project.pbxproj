@@ -24,6 +24,7 @@
 		C3806D13270A4AB2007D11E9 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D12270A4AB2007D11E9 /* RecipeService.swift */; };
 		C3806D15270A4CD4007D11E9 /* URLEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D14270A4CD4007D11E9 /* URLEncodable.swift */; };
 		C3806D17270A4D3A007D11E9 /* RecipeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D16270A4D3A007D11E9 /* RecipeApi.swift */; };
+		C3806D19270B40B5007D11E9 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D18270B40B5007D11E9 /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C3806D12270A4AB2007D11E9 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
 		C3806D14270A4CD4007D11E9 /* URLEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodable.swift; sourceTree = "<group>"; };
 		C3806D16270A4D3A007D11E9 /* RecipeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeApi.swift; sourceTree = "<group>"; };
+		C3806D18270B40B5007D11E9 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				C3806D0A270A499B007D11E9 /* URLSession+GenericCall.swift */,
 				C3806D14270A4CD4007D11E9 /* URLEncodable.swift */,
+				C3806D18270B40B5007D11E9 /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -141,7 +144,6 @@
 		C3806D0C270A49DD007D11E9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				C3806D0D270A49F5007D11E9 /* NetworkError.swift */,
 				C3806D0F270A4A29007D11E9 /* NetworkLogger.swift */,
 			);
 			path = Network;
@@ -150,6 +152,7 @@
 		C3806D11270A4A7E007D11E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3806D0D270A49F5007D11E9 /* NetworkError.swift */,
 				C3806D12270A4AB2007D11E9 /* RecipeService.swift */,
 				C3806D16270A4D3A007D11E9 /* RecipeApi.swift */,
 			);
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3806D19270B40B5007D11E9 /* UIViewController+Alert.swift in Sources */,
 				C3806D0B270A499B007D11E9 /* URLSession+GenericCall.swift in Sources */,
 				C3806CEE270703F0007D11E9 /* Reciplease.xcdatamodeld in Sources */,
 				C3806CE8270703F0007D11E9 /* AddIngredientViewController.swift in Sources */,
