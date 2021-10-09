@@ -7,102 +7,80 @@
 
 import UIKit
 
-class RecipesListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RecipesListViewController: UIViewController {
  
+    
     // MARK: - Outlets
-    
-//    @IBOutlet weak var navigationBar: UINavigationItem!
-    
+        
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var backNavigationItem: UINavigationItem!
-    
-    @IBAction func searchRecipesBiutton(_ sender: UIButton) {
-    }
     @IBOutlet weak var recipesTableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     // MARK: - Properties
     
-    private let recipeService = RecipeService()
-//    private let ingredients = ["Chicken", "Apple"]
-    private var recipeList: RecipeApi? = nil
+    var recipeList: RecipeApi?
     
-    // MARK: - View Did Load
+    
+//     MARK: - View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
-            
-//            CGPoint(x: mainView.frame.width / 2, y: mainView.frame.height / 2)
-        // Do any additional setup after loading the view.
         
-//        let backItem = UIBarButtonItem(title: "Custom", style: .plain, target: nil, action: nil)
-//        navigationItem.backBarButtonItem = backItem
-        
-        // Launch Networkcall
-        recipeService.fetchRecipes() { [weak self] result in
-            DispatchQueue.main.async {
-                self?.activityIndicator.startAnimating()
-
-                switch result {
-                    
-                case .success(let recipeList):
-                    self?.recipeList = recipeList
-                    print (recipeList.hits[1].recipe.label)
-                    print (recipeList.hits.count)
-                    self?.recipesTableView.reloadData()
-
-                case.failure(let error):
-                    self?.showAlert(with: error.description)
-                }
-                self?.activityIndicator.stopAnimating()
-            }
-        }
+        // TableViewCell take RecipeTableViewCell.xib as cell
+        self.recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//        // Launch Networkcall
-//        recipeService.fetchRecipes() { [weak self] result in
-//            DispatchQueue.main.async {
-//                self?.activityIndicator.startAnimating()
-//
-//                switch result {
-//
-//                case .success(let recipeList):
-//                    self?.recipeList = recipeList
-//                    print (recipeList.hits[1].recipe.label)
-//                    print (recipeList.hits.count)
-//                    self?.recipesTableView.reloadData()
-//
-//                case.failure(let error):
-//                    self?.showAlert(with: error.description)
-//                }
-//                self?.activityIndicator.stopAnimating()
-//            }
-//        }
-//    }
-    
+    // TableViewCell take RecipeTableViewCell.xib as cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeList?.hits.count ?? 20
+        return recipeList?.hits.count ?? 0
     }
     
+}
+    // MARK: - UITableViewDataSource
     
+extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath)
-        let recipe = recipeList?.hits[indexPath.row].recipe
-        cell.textLabel?.text = recipe?.label
-        cell.detailTextLabel?.text = recipe?.label
-
-//        cell.textLabel?.text = recipe?.label
-
-        return cell
-    }
-
-    @IBAction func actualizeTableViewButton(_ sender: UIButton) {
-        recipesTableView.reloadData()
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? RecipeTableViewCell {
+            let recipe = recipeList?.hits[indexPath.row].recipe
+            
+            // Fill the title label with the name of recipe
+            cell.titleLabel?.text = recipe?.label
+            
+            // Fill the image with the image of recipe
+            let imageUrl = NSURL(string: recipe!.image)
+            let imageData = NSData(contentsOf:imageUrl! as URL)
+            if imageData != nil {
+                cell.recipeImage?.image = UIImage(data:imageData! as Data)
+                }
+            
+            // Formate list of ingredients and fill description label with these list
+            var listOfIngredients: String = ""
+            for i in 0...(recipe?.ingredients.count)!-1 {
+                if listOfIngredients == "" {
+                    listOfIngredients = String(recipe!.ingredients[i].food).firstUppercased
+                } else {
+                    listOfIngredients = "\(listOfIngredients), " + String( recipe!.ingredients[i].food).firstUppercased
+                }
+            }
+            cell.descriptionLabel?.text = listOfIngredients
+            
+            return cell
+            }
+        return UITableViewCell()
     }
     
+    // Height of cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+    
+
+    //     MARK: - Action
+
+    
+
 }
 
 

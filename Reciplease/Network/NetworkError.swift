@@ -17,8 +17,12 @@ enum NetworkError:  Error {
 extension NetworkError: CustomStringConvertible {
     var description: String {
         switch self {
-        case .noData, .invalidResponse, .undecodableData:
-            return "The service is momentarily unavailable"
+        case .noData:
+            return "No Data"
+        case .invalidResponse:
+            return "Invalid response"
+        case .undecodableData:
+            return "Undecodable data"
         }
     }
 }
