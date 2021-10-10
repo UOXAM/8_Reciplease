@@ -140,7 +140,7 @@
                 <outlet property="timeLabel" destination="2v6-c8-YwL" id="vQR-Vq-Pdh"/>
                 <outlet property="titleLabel" destination="FBB-B7-90j" id="Qb8-v3-CQR"/>
             </connections>
-            <point key="canvasLocation" x="5441" y="80"/>
+            <point key="canvasLocation" x="5440.579710144928" y="79.6875"/>
         </tableViewCell>
     </objects>
     <resources>

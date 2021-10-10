@@ -29,7 +29,7 @@ class RecipesListViewController: UIViewController {
         
         // TableViewCell take RecipeTableViewCell.xib as cell
         self.recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-//        self.navigationItem.backBarButtonItem?.title = "Back"
+        self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 //        self.navigationItem.backButtonTitle = "Back"
 //        self.navigationItem.leftBarButtonItem?.title = "Back"
     }

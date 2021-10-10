@@ -196,7 +196,9 @@
                             <constraint firstItem="hWM-Ix-dxi" firstAttribute="top" secondItem="miM-HP-8CR" secondAttribute="top" id="tTv-x3-keH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Reciplease" id="dVM-nw-Xks"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="dVM-nw-Xks">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="e5g-g2-iGA"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="hWM-Ix-dxi" id="2FE-1R-p87"/>
                         <outlet property="addIngredientButton" destination="ZSC-2P-4DR" id="c2A-9L-jTm"/>
@@ -319,7 +321,7 @@
             <objects>
                 <viewController id="Zpy-h7-vcE" customClass="RecipeViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGw-v7-2cv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G3e-Sx-qCH">
@@ -495,7 +497,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4Hs-BD-COs"/>
+        <segue reference="0sj-so-qD8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
