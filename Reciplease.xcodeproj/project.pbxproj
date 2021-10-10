@@ -112,7 +112,6 @@
 			children = (
 				C3806CE9270703F0007D11E9 /* Main.storyboard */,
 				C3806CF1270703F2007D11E9 /* LaunchScreen.storyboard */,
-				C3806D1A270C45D7007D11E9 /* RecipeTableViewCell.swift */,
 				C3806D1B270C45D7007D11E9 /* RecipeTableViewCell.xib */,
 			);
 			path = View;
@@ -124,6 +123,7 @@
 				C3806CFB27073E54007D11E9 /* RecipesListViewController.swift */,
 				C3806CE7270703F0007D11E9 /* AddIngredientViewController.swift */,
 				C3806D2627138381007D11E9 /* RecipeViewController.swift */,
+				C3806D1A270C45D7007D11E9 /* RecipeTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

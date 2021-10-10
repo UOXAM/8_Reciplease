@@ -18,7 +18,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreAndTimeView: UIView!
-    
+
     
     // MARK: - Generic Functions
 

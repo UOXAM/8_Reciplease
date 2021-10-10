@@ -233,12 +233,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Los-76-NId"/>
                         <color key="backgroundColor" red="0.2117646933" green="0.20000001789999999" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Los-76-NId" firstAttribute="trailing" secondItem="1aZ-he-wIg" secondAttribute="trailing" id="Cta-ZR-xgV"/>
                             <constraint firstItem="Los-76-NId" firstAttribute="bottom" secondItem="1aZ-he-wIg" secondAttribute="bottom" id="RpA-M1-Z9d"/>
                             <constraint firstItem="1aZ-he-wIg" firstAttribute="top" secondItem="Los-76-NId" secondAttribute="top" id="WzN-TO-G9T"/>
                             <constraint firstItem="1aZ-he-wIg" firstAttribute="leading" secondItem="Los-76-NId" secondAttribute="leading" id="bxJ-cx-ypK"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Azi-oH-lXW" appends="YES" id="GdL-GK-adT"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="tam-9M-Tvr" userLabel="Navigation">
                         <barButtonItem key="backBarButtonItem" title="Back" id="rUH-YB-eFH"/>
@@ -251,6 +255,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljx-YW-dvW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Azi-oH-lXW">
+                    <connections>
+                        <action selector="tapGestureRecognizer:" destination="0oD-c0-2GV" id="CCu-Io-axW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2060.8695652173915" y="-614.0625"/>
         </scene>
@@ -316,12 +325,12 @@
             </objects>
             <point key="canvasLocation" x="2061" y="307"/>
         </scene>
-        <!--Recipe View Controller-->
+        <!--Reciplease-->
         <scene sceneID="sYG-AN-wIw">
             <objects>
                 <viewController id="Zpy-h7-vcE" customClass="RecipeViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGw-v7-2cv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G3e-Sx-qCH">
@@ -489,7 +498,18 @@
                             <constraint firstItem="G3e-Sx-qCH" firstAttribute="top" secondItem="8SZ-p5-VQr" secondAttribute="top" id="h5v-5w-2xY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qOR-Bm-i5W"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="qOR-Bm-i5W">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="kfP-ZO-iwh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="favoriteButton:" destination="Zpy-h7-vcE" id="suv-Kn-PGH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="favoriteButton" destination="kfP-ZO-iwh" id="eHh-8p-pXq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3y-gU-DBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -502,6 +522,7 @@
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

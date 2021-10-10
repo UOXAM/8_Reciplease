@@ -39,6 +39,11 @@ class RecipesListViewController: UIViewController {
         return recipeList?.hits.count ?? 0
     }
     
+    @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "segueToRecipe", sender: nil)
+
+    }
+    
 }
     // MARK: - UITableViewDataSource
     
@@ -80,14 +85,14 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     
-    // MARK: - Prepare Segue
+//     MARK: - Prepare Segue
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "segueToRecipe" {
-//            let successVC = segue.destination as! RecipeViewController
-//            successVC.recipeList = recipeList
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToRecipe" {
+            let successVC = segue.destination as! RecipeViewController
+            successVC.recipeList = recipeList
+        }
+    }
     
 
     //     MARK: - Action
