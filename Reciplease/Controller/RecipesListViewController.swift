@@ -29,6 +29,9 @@ class RecipesListViewController: UIViewController {
         
         // TableViewCell take RecipeTableViewCell.xib as cell
         self.recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+//        self.navigationItem.backBarButtonItem?.title = "Back"
+//        self.navigationItem.backButtonTitle = "Back"
+//        self.navigationItem.leftBarButtonItem?.title = "Back"
     }
     
     // TableViewCell take RecipeTableViewCell.xib as cell
@@ -73,8 +76,18 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
     
     // Height of cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 160
     }
+    
+    
+    // MARK: - Prepare Segue
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "segueToRecipe" {
+//            let successVC = segue.destination as! RecipeViewController
+//            successVC.recipeList = recipeList
+//        }
+//    }
     
 
     //     MARK: - Action

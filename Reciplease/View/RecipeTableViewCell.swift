@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class RecipeTableViewCell: UITableViewCell {
 
@@ -16,6 +17,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var scoreAndTimeView: UIView!
     
     
     // MARK: - Generic Functions
@@ -23,13 +25,14 @@ class RecipeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        borderFormatting(element: scoreAndTimeView)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+        
     }
-    
-    
     
 }

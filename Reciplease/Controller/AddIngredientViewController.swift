@@ -26,7 +26,13 @@ class AddIngredientViewController: UIViewController {
     private var recipeList: RecipeApi? = nil
     private var ingredientsListToNetworkcall: String = ""
 
-    
+    override func viewDidLoad() {
+        super .viewDidLoad()
+        buttonFormatting(button: clearButton)
+        buttonFormatting(button: searchForRecipesButton)
+        buttonFormatting(button: addIngredientButton)
+    }
+      
     // MARK: - Actions
 
     @IBAction func clearButton(_ sender: UIButton) {
@@ -60,15 +66,17 @@ class AddIngredientViewController: UIViewController {
             showAlert(with: "La liste d'ingrédients est vide! Veuillez la compléter avant de rechercher des recettes.")
             return
         }
-        print (ingredientsListArray)
-        print(ingredientsListToNetworkcall)
+        
+        activityIndicator.startAnimating()
+        searchForRecipesButton.isHidden = true
+        clearButton.isOpaque = true
+        addIngredientButton.isOpaque = true
+        
         
         // Launch Networkcall
         recipeService.fetchRecipes(ingredients: ingredientsListToNetworkcall) { [weak self] result in
 
             DispatchQueue.main.async {
-                self?.activityIndicator.startAnimating()
-                self?.searchForRecipesButton.isHidden = true
 
                 switch result {
                     
@@ -86,7 +94,8 @@ class AddIngredientViewController: UIViewController {
                 
                 self?.activityIndicator.stopAnimating()
                 self?.searchForRecipesButton.isHidden = false
-
+                self?.clearButton.isOpaque = false
+                self?.addIngredientButton.isOpaque = false
             }
         }
     }
