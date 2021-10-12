@@ -22,7 +22,7 @@ class AddIngredientViewController: UIViewController {
     // MARK: - Properties
 
     var ingredientsListArray: [String] = []
-    private let recipeService = RecipeService()
+    private let requestService = RequestService()
     private var recipeList: RecipeApi? = nil
     private var ingredientsListToNetworkcall: String = ""
 
@@ -75,7 +75,7 @@ class AddIngredientViewController: UIViewController {
         
         
         // Launch Networkcall
-        recipeService.fetchRecipes(ingredients: ingredientsListToNetworkcall) { [weak self] result in
+        requestService.getData(ingredients: ingredientsListToNetworkcall) { [weak self] result in
 
             DispatchQueue.main.async {
 
