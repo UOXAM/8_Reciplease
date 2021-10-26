@@ -12,15 +12,14 @@ class RecipesListViewController: UIViewController {
     
     // MARK: - Outlets
         
-    @IBOutlet var mainView: UIView!
-    @IBOutlet weak var backNavigationItem: UINavigationItem!
+//    @IBOutlet weak var backNavigationItem: UINavigationItem!
     @IBOutlet weak var recipesTableView: UITableView!
     
     
     // MARK: - Properties
     
     var recipeList: RecipeApi?
-    
+    var recipeToPass: Recipe?
     
 //     MARK: - View Did Load
     
@@ -30,8 +29,6 @@ class RecipesListViewController: UIViewController {
         // TableViewCell take RecipeTableViewCell.xib as cell
         self.recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        self.navigationItem.backButtonTitle = "Back"
-//        self.navigationItem.leftBarButtonItem?.title = "Back"
     }
     
     // TableViewCell take RecipeTableViewCell.xib as cell
@@ -39,12 +36,9 @@ class RecipesListViewController: UIViewController {
         return recipeList?.hits.count ?? 0
     }
     
-    @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        self.performSegue(withIdentifier: "segueToRecipe", sender: nil)
-
-    }
-    
 }
+
+
     // MARK: - UITableViewDataSource
     
 extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -84,13 +78,22 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
         return 160
     }
     
+    // Tap on cell -> segue
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = recipeList?.hits[indexPath.row].recipe
+        recipeToPass = recipe
+        performSegue(withIdentifier: "segueToRecipe", sender: nil)
+        
+    }
+    
     
 //     MARK: - Prepare Segue
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRecipe" {
             let successVC = segue.destination as! RecipeViewController
-            successVC.recipeList = recipeList
+            successVC.recipePassed = recipeToPass
         }
     }
     
