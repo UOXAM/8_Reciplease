@@ -30,24 +30,52 @@ final class CoreDataManager {
 
     // MARK: - Manage Task Entity
 
-    func addFavorite(uri: String, title: String, duration: String, image: String, ingredient: String) {
+    func addFavoriteRecipe(recipe: Recipe) {
 //        func addFavorite(uri: String, title: String, ingredient: [String], duration: String, image: String) {
 
-        let recipe = FavoriteRecipe(context: managedObjectContext)
-        recipe.uri = uri
-        recipe.title = title
-//        recipe.ingredient = ingredient as NSObject
-        recipe.duration = duration
-        recipe.date = Date()
-        recipe.ingredient = ingredient
-        recipe.image = image
+        let favoriteRecipe = FavoriteRecipe(context: managedObjectContext)
+        favoriteRecipe.uri = recipe.uri
+        favoriteRecipe.title = recipe.label
+        
+//        var arrayIngredients = ingredient
+//        let data = NSData(bytes: &arrayIngredients, length: arrayIngredients.count)
+//        recipe.ingredient = data
+        
+//        Test avec recipe.ingredient de type Transformable -> [String]
+//        recipe.ingredient = ingredient
+        favoriteRecipe.ingredient = recipe.ingredientLines
+//        favoriteRecipe.ingredient = try? JSONEncoder().encode(recipe.ingredientLines)
+        favoriteRecipe.duration = String(recipe.totalTime)
+        favoriteRecipe.date = Date()
+//        recipe.ingredient = ingredient
+        favoriteRecipe.image = recipe.image
         coreDataStack.saveContext()
     }
 
-    func removeFavorite() {
+    func deleteAllFavoriteRecipes() {
         favoriteRecipes.forEach { managedObjectContext.delete($0) }
         coreDataStack.saveContext()
     }
+    
+    func deleteFavoriteRecipe(uri: String, title: String) {
+        let request : NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
+        request.predicate = NSPredicate(format: "uri == %@", uri)
+        request.predicate = NSPredicate(format: "title == %@", title)
 
+        if let entity = try? managedObjectContext.fetch(request) {
+            entity.forEach { managedObjectContext.delete($0) }
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func isRecipeAlreadyFavorite(uri: String, title: String) -> Bool {
+        let request : NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
+        request.predicate = NSPredicate(format: "uri == %@", uri)
+        request.predicate = NSPredicate(format: "title == %@", title)
+
+        guard let counter = try? managedObjectContext.count(for: request) else { return false }
+        return counter == 0 ? false : true
+
+    }
 
 }

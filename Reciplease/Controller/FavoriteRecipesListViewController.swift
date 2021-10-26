@@ -36,13 +36,17 @@ class FavoriteRecipesListViewController: UIViewController {
         // TableViewCell take RecipeTableViewCell.xib as cell
         self.favoriteRecipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+//        print(coreDataManager?.favoriteRecipes[0].date!)
     }
     
     
     @IBAction func deleteButton(_ sender: UIButton) {
-        coreDataManager?.removeFavorite()
+        coreDataManager?.deleteAllFavoriteRecipes()
         favoriteRecipesTableView.reloadData()
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         favoriteRecipesTableView.reloadData()
@@ -102,9 +106,9 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let recipeCoreData = coreDataManager?.favoriteRecipes[indexPath.row]
-//                
+//
 //        favoriteRecipeToPass = recipeCoreData
-//        
+//
 //        performSegue(withIdentifier: "segueToRecipe", sender: nil)
 //    }
     

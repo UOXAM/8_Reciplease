@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddIngredientViewController: UIViewController {
 
@@ -18,7 +19,8 @@ class AddIngredientViewController: UIViewController {
     @IBOutlet weak var addIngredientButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
+    private var coreDataManager: CoreDataManager?
+
     // MARK: - Properties
 
     var ingredientsListArray: [String] = []
