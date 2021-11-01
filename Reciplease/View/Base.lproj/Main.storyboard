@@ -338,10 +338,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1PL-U4-O5S">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="217.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hrQ-Zv-rGU">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="217.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hrQ-Zv-rGU">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdd-e5-UE1" userLabel="Score And Time View">
                                                 <rect key="frame" x="349" y="10" width="55" height="45"/>
@@ -403,8 +403,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="1jv-US-bZ4" secondAttribute="bottom" id="xHs-yY-Agc"/>
                                                 </constraints>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3A5-m2-8wX">
-                                                <rect key="frame" x="0.0" y="167.5" width="414" height="50"/>
+                                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3A5-m2-8wX">
+                                                <rect key="frame" x="0.0" y="204" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pq-QH-gTB">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -437,7 +437,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zop-et-0nr">
-                                        <rect key="frame" x="0.0" y="217.5" width="414" height="507.5"/>
+                                        <rect key="frame" x="0.0" y="254" width="414" height="471"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnx-eN-hhX">
                                                 <rect key="frame" x="20" y="25" width="128.5" height="29"/>
@@ -449,7 +449,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDC-xw-F18">
-                                                <rect key="frame" x="35" y="432.5" width="344" height="50"/>
+                                                <rect key="frame" x="35" y="396" width="344" height="50"/>
                                                 <color key="backgroundColor" red="0.34901961679999999" green="0.57647061349999995" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="mSq-Om-9AP"/>
@@ -464,7 +464,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ucn-lo-Dri">
-                                                <rect key="frame" x="20" y="74" width="374" height="338.5"/>
+                                                <rect key="frame" x="20" y="74" width="374" height="302"/>
                                                 <color key="backgroundColor" red="0.2117646933" green="0.20000001789999999" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" red="0.2117646933" green="0.20000001789999999" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -518,7 +518,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1PL-U4-O5S" firstAttribute="height" secondItem="G3e-Sx-qCH" secondAttribute="height" multiplier="0.3" id="0Z5-WL-MVq"/>
+                                    <constraint firstItem="1PL-U4-O5S" firstAttribute="height" secondItem="G3e-Sx-qCH" secondAttribute="height" multiplier="0.35" id="0Z5-WL-MVq"/>
                                 </constraints>
                             </stackView>
                         </subviews>

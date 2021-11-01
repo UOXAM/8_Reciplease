@@ -53,10 +53,11 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
             // Fill the image with the image of recipe
             let imageUrl = NSURL(string: recipe!.image)
             let imageData = NSData(contentsOf:imageUrl! as URL)
+
             if imageData != nil {
                 cell.recipeImage?.image = UIImage(data:imageData! as Data)
-                }
-            
+            }
+
             // Formate list of ingredients and fill description label with these list
             var listOfIngredients: String = ""
             for i in 0...(recipe?.ingredients.count)!-1 {
@@ -67,15 +68,16 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
                 }
             }
             cell.descriptionLabel?.text = listOfIngredients
-            
+
             return cell
             }
+
         return UITableViewCell()
     }
     
     // Height of cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 200
     }
     
     // Tap on cell -> segue
@@ -100,40 +102,5 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
 
     //     MARK: - Action
 
-    
 
 }
-
-
-//// MARK: - UITableViewDataSource
-//
-//extension RecipesListViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    //    return coreDataManager?.tasks.count ?? 0
-//        return rec
-//    }
-//
-////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        let taskCell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-////        taskCell.textLabel?.text = coreDataManager?.tasks[indexPath.row].name
-////        return taskCell
-////    }
-//}
-//
-//// MARK: - UITableViewDelegate
-//
-//extension RecipesListViewController: UITableViewDelegate {
-////    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-////        let label = UILabel()
-////        label.text = "Add some tasks in the list"
-////        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-////        label.textAlignment = .center
-////        label.textColor = .darkGray
-////        return label
-////    }
-////
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-////        return coreDataManager?.tasks.isEmpty ?? true ? 200 : 0
-//        return 200
-//    }
-//}

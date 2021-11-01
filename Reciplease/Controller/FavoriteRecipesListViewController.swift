@@ -99,7 +99,7 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
     
     // Height of cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 200
     }
     
     // Tap on cell -> segue

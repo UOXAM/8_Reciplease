@@ -40,11 +40,21 @@ class RecipeViewController: UIViewController  {
         titleLabel.text = recipePassed?.label
         timeLabel.text = recipePassed?.totalTime.description
         
+        
         if self.coreDataManager?.isRecipeAlreadyFavorite(uri: recipePassed!.uri, title: recipePassed!.label) == true {
             favoriteButton.image = UIImage(systemName: "star.fill")
         }else{
             favoriteButton.image = UIImage(systemName: "star")
         }
+        
+        // Fill the image with the image of recipe
+        let imageUrl = NSURL(string: recipePassed!.image)
+        let imageData = NSData(contentsOf:imageUrl! as URL)
+
+        if imageData != nil {
+            recipeImage.image = UIImage(data:imageData! as Data)
+        }
+
     }
     
     
