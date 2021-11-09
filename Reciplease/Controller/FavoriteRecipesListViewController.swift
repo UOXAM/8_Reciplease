@@ -20,7 +20,7 @@ class FavoriteRecipesListViewController: UIViewController {
 //    var recipeList: RecipeApi?
 //    var recipeToPass: Recipe?
     private var coreDataManager: CoreDataManager?
-    var favoriteRecipeToPass: NSObject?
+    var favoriteRecipeToPass: RecipeDetail?
     
 
     
@@ -36,8 +36,6 @@ class FavoriteRecipesListViewController: UIViewController {
         // TableViewCell take RecipeTableViewCell.xib as cell
         self.favoriteRecipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
-//        print(coreDataManager?.favoriteRecipes[0].date!)
     }
     
     
@@ -70,30 +68,18 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
             let recipe = coreDataManager?.favoriteRecipes[indexPath.row]
             
             // Fill the title label with the name of recipe
-            cell.titleLabel?.text = recipe?.title
+            cell.titleLabel?.text = recipe?.label
             
             // Fill the image with the image of recipe
-
             let imageUrl = NSURL(string: (recipe?.image)!)
             let imageData = NSData(contentsOf:imageUrl! as URL)
             if imageData != nil {
                 cell.recipeImage?.image = UIImage(data:imageData! as Data)
-                }
-            
-            
-            // Formate list of ingredients and fill description label with these list
-//            var listOfIngredients: String = ""
-//            for i in 0...(recipe?.ingredient)!-1 {
-//                if listOfIngredients == "" {
-//                    listOfIngredients = String(recipe!.ingredients[i].food).firstUppercased
-//                } else {
-//                    listOfIngredients = "\(listOfIngredients), " + String( recipe!.ingredients[i].food).firstUppercased
-//                }
-//            }
-//            cell.descriptionLabel?.text = recipe?.ingredient?.description
+                
+            }
             
             return cell
-            }
+        }
         return UITableViewCell()
     }
     
@@ -103,28 +89,24 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
     }
     
     // Tap on cell -> segue
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let recipeCoreData = coreDataManager?.favoriteRecipes[indexPath.row]
-//
-//        favoriteRecipeToPass = recipeCoreData
-//
-//        performSegue(withIdentifier: "segueToRecipe", sender: nil)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe: RecipeDetail = (coreDataManager?.favoriteRecipes[indexPath.row])!
+        favoriteRecipeToPass = recipe
+        performSegue(withIdentifier: "segueToFavoriteRecipe", sender: nil)
+    }
     
     
 //     MARK: - Prepare Segue
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "segueToRecipe" {
-//            let successVC = segue.destination as! RecipeViewController
-//            successVC.recipePassed = recipeToPass
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToFavoriteRecipe" {
+            let successVC = segue.destination as! RecipeViewController
+            successVC.recipePassed = favoriteRecipeToPass
+            successVC.fromFavoriteList = true
+        }
+    }
     
-
-    //     MARK: - Action
-
     
-
+    
+    
 }

@@ -32,15 +32,15 @@ final class CoreDataManager {
 
     // MARK: - Manage Task Entity
 
-    func addFavoriteRecipe(recipe: Recipe) {
+    func addFavoriteRecipe(recipe: RecipeDetail) {
 //        func addFavorite(uri: String, title: String, ingredient: [String], duration: String, image: String) {
 
         let favoriteRecipe = FavoriteRecipe(context: managedObjectContext)
-        favoriteRecipe.uri = recipe.uri
-        favoriteRecipe.title = recipe.label
+        favoriteRecipe.url = recipe.url
+        favoriteRecipe.label = recipe.label
 //        Recipe.ingredient de type Transformable -> [String]
-        favoriteRecipe.ingredient = recipe.ingredientLines
-        favoriteRecipe.duration = String(recipe.totalTime)
+        favoriteRecipe.ingredientLines = recipe.ingredientLines
+        favoriteRecipe.duration = recipe.duration
         favoriteRecipe.date = Date()
         favoriteRecipe.image = recipe.image
         coreDataStack.saveContext()
@@ -51,9 +51,9 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
     
-    func deleteFavoriteRecipe(uri: String, title: String) {
+    func deleteFavoriteRecipe(url: String, title: String) {
         let request : NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
-        request.predicate = NSPredicate(format: "uri == %@", uri)
+        request.predicate = NSPredicate(format: "url == %@", url)
 //        request.predicate = NSPredicate(format: "title == %@", title)
 
         if let entity = try? managedObjectContext.fetch(request) {
@@ -62,9 +62,9 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
     
-    func isRecipeAlreadyFavorite(uri: String, title: String) -> Bool {
+    func isRecipeAlreadyFavorite(url: String) -> Bool {
         let request : NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
-        request.predicate = NSPredicate(format: "uri == %@", uri)
+        request.predicate = NSPredicate(format: "url == %@", url)
 //        request.predicate = NSPredicate(format: "title == %@", title)
 
         guard let counter = try? managedObjectContext.count(for: request) else { return false }

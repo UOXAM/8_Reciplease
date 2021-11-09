@@ -56,4 +56,31 @@ final class RequestService {
             callback(.success(dataDecoded))
         }
     }
+    
+    func getNextData(url: String, callback: @escaping (Result<RecipeApi, NetworkError>) -> Void) {
+    
+        guard let url = URL(string: url) else {return}
+        
+        #if DEBUG
+        NetworkLogger(url: url).show()
+        #endif
+        
+        session.request(url: url) { dataResponse in
+            guard let data = dataResponse.data else {
+                callback(.failure(.noData))
+                return
+            }
+            guard dataResponse.response?.statusCode == 200 else {
+                callback(.failure(.invalidResponse))
+                return
+            }
+            guard let dataDecoded = try? JSONDecoder().decode(RecipeApi.self, from: data) else {
+                callback(.failure(.undecodableData))
+                return
+            }
+            callback(.success(dataDecoded))
+        }
+
+    }
+
 }

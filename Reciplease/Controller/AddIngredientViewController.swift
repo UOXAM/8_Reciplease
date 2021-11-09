@@ -85,7 +85,7 @@ class AddIngredientViewController: UIViewController {
                     
                 case .success(let recipeList):
                     self?.recipeList = recipeList
-                    guard recipeList.count > 0 else {
+                    guard recipeList.count! > 0 else {
                         self?.showAlert(with: "Aucune recette trouvée, essayez avec de nouveaux ingrédients")
                         return
                     }
@@ -106,7 +106,15 @@ class AddIngredientViewController: UIViewController {
     // MARK: - Functions
     
     func addIngredientToList(_ ingredient: String) {
-        // add ingredient to the list array
+        // filter the array with the ingredient to add
+        let filteredArray = ingredientsListArray.filter { $0.contains(ingredient) }
+        // check if this ingredient is already in the array
+        guard filteredArray.count < 1 else {
+            // if YES : show alert and return
+            self.showAlert(with: "Cet ingrédient semble déjà avoir été ajouté à la liste !")
+            return
+        }
+            // if NO : add this ingredient to array
         ingredientsListArray.append(ingredient)
     }
     

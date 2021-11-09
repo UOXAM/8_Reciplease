@@ -289,7 +289,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SZv-mG-B57" customClass="FavoriteTableView" customModule="Reciplease" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.2117646933" green="0.20000001789999999" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="dataSource" destination="W2K-ho-t6u" id="Ch1-aU-Luw"/>
                                     <outlet property="delegate" destination="W2K-ho-t6u" id="kGW-UI-5ue"/>
@@ -319,7 +319,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="favoriteRecipesTableView" destination="SZv-mG-B57" id="IkC-Hc-4wg"/>
-                        <segue destination="Zpy-h7-vcE" kind="show" id="rew-fl-P0Q"/>
+                        <segue destination="Zpy-h7-vcE" kind="show" identifier="segueToFavoriteRecipe" id="rew-fl-P0Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opW-W5-K7y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -554,7 +554,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rew-fl-P0Q"/>
+        <segue reference="0sj-so-qD8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>

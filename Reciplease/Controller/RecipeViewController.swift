@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class RecipeViewController: UIViewController  {
 
     
@@ -23,9 +24,10 @@ class RecipeViewController: UIViewController  {
     // MARK: - Properties
 
     private var coreDataManager: CoreDataManager?
-    var recipePassed: Recipe?
-    var favoriteRecipePassed: NSObject?
-    
+//    var recipePassed: Recipe?
+    var recipePassed: RecipeDetail?
+//    var favoriteRecipePassed: NSObject?
+    var fromFavoriteList: Bool?
 
     
     //     MARK: - View Did Load
@@ -33,46 +35,52 @@ class RecipeViewController: UIViewController  {
     override func viewDidLoad() {
         super .viewDidLoad()
         // If recipe is in CoreData base (same title, same id ?) then put favoriteButton.image == UIImage(systemName: "star.fill")
+        print("*******",recipePassed?.label as Any)
+        print("*******",recipePassed?.duration as Any)
+        print("*******",recipePassed?.image as Any)
+        print("*******",recipePassed?.url as Any)
+        print("*******",recipePassed?.ingredientLines?.description as Any)
+
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coredataStack = appdelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coredataStack)
 
         titleLabel.text = recipePassed?.label
-        timeLabel.text = recipePassed?.totalTime.description
+        timeLabel.text = recipePassed?.duration
         
         
-        if self.coreDataManager?.isRecipeAlreadyFavorite(uri: recipePassed!.uri, title: recipePassed!.label) == true {
+        if self.coreDataManager?.isRecipeAlreadyFavorite(url: recipePassed!.url!) == true {
             favoriteButton.image = UIImage(systemName: "star.fill")
         }else{
             favoriteButton.image = UIImage(systemName: "star")
         }
         
         // Fill the image with the image of recipe
-        let imageUrl = NSURL(string: recipePassed!.image)
+        let imageUrl = NSURL(string: recipePassed!.image!)
         let imageData = NSData(contentsOf:imageUrl! as URL)
 
         if imageData != nil {
             recipeImage.image = UIImage(data:imageData! as Data)
         }
-
     }
     
     
     @IBAction func favoriteButton(_ sender: UIButton) {
-        
-        if self.coreDataManager?.isRecipeAlreadyFavorite(uri: recipePassed!.uri, title: recipePassed!.label) == false {
+        // lorsque je suis dans le détail d'une recette favorite et que je clique sur l'étoile -> elle est supprimée de la BDD
+        // si je clique à nouveau sur l'étoile -> erreur : recipePassed = nil
+        // Singleton Pattern
+        if self.coreDataManager?.isRecipeAlreadyFavorite(url: recipePassed!.url!) == false {
                 
             self.coreDataManager?.addFavoriteRecipe(recipe: recipePassed!)
             favoriteButton.image = UIImage(systemName: "star.fill")
             
         }else{
-            self.coreDataManager?.deleteFavoriteRecipe(uri: recipePassed!.uri, title: recipePassed!.label)
+            self.coreDataManager?.deleteFavoriteRecipe(url: recipePassed!.url!, title: recipePassed!.label!)
             favoriteButton.image = UIImage(systemName: "star")
+            guard fromFavoriteList == true else {return}
+            
         }
     }
-    
-    
-    
 }
 
 extension RecipeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -83,15 +91,17 @@ extension RecipeViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (recipePassed?.ingredientLines.count)!
+//        return (recipePassed?.ingredientLines.count)!
+        return (recipePassed?.ingredientLines?.count)!
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as? IngredientTableViewCell else {
             return UITableViewCell()
         }
-        cell.ingredientLabel.text = recipePassed?.ingredientLines[indexPath.row]
-        
+//        cell.ingredientLabel.text = recipePassed?.ingredientLines[indexPath.row]
+        cell.ingredientLabel.text = recipePassed?.ingredientLines?[indexPath.row]
         return cell
     }
     

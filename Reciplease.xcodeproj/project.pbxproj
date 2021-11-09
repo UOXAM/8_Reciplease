@@ -192,7 +192,6 @@
 				C3806D1E270C89D9007D11E9 /* String.swift */,
 				C3806D22271231C8007D11E9 /* UIImageView.swift */,
 				C3806D242712D876007D11E9 /* UIView.swift */,
-				C31E736D272B25EC00F960FD /* RecipeDetail.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,6 +211,7 @@
 				C3806D12270A4AB2007D11E9 /* RequestService.swift */,
 				C3806D16270A4D3A007D11E9 /* RecipeApi.swift */,
 				C3806D28271627B7007D11E9 /* EdamamSession.swift */,
+				C31E736D272B25EC00F960FD /* RecipeDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

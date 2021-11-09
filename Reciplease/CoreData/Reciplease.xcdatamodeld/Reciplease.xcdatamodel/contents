@@ -4,9 +4,9 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="duration" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="String"/>
-        <attribute name="ingredient" optional="YES" transient="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="uri" optional="YES" attributeType="String"/>
+        <attribute name="ingredientLines" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName=".[String]"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="FavoriteRecipe" positionX="526.859375" positionY="-18079.30078125" width="128" height="119"/>
