@@ -85,7 +85,8 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
     // Tap on cell -> segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var recipe = recipeList?.hits?[indexPath.row].recipe
-        recipe!.duration = String((recipe?.totalTime)!)
+        let duration = recipe?.totalTime
+        recipe?.duration = String(duration!)
         recipeToPass = recipe
         performSegue(withIdentifier: "segueToRecipe", sender: nil)
     }

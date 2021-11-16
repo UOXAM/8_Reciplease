@@ -14,9 +14,16 @@ final class FakeResponseData {
     class NetworkError: Error {}
     static let networkError = NetworkError()
     
-    static var correctData: Data {
+    static var correctDataFirstNetworkcall: Data {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "FakeRecipeAPI", withExtension: "json")
+        let url = bundle.url(forResource: "FakeFirstRecipeAPI", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static var correctDataNextNetworkcall: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "FakeNextRecipeAPI", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }

@@ -12,11 +12,11 @@
 		C31E736E272B25EC00F960FD /* RecipeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31E736D272B25EC00F960FD /* RecipeDetail.swift */; };
 		C335CA292742C07B00799826 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335CA282742C07B00799826 /* CoreDataManagerTests.swift */; };
 		C335CA2B2742C0C500799826 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335CA2A2742C0C500799826 /* MockCoreDataStack.swift */; };
-		C335CA2D2742C92700799826 /* FakeRecipeAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = C335CA2C2742C92700799826 /* FakeRecipeAPI.json */; };
+		C335CA2D2742C92700799826 /* FakeFirstRecipeAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = C335CA2C2742C92700799826 /* FakeFirstRecipeAPI.json */; };
 		C335CA3127439C4000799826 /* RequestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335CA3027439C4000799826 /* RequestServiceTests.swift */; };
 		C335CA332743A18800799826 /* FakeEdamamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335CA322743A18800799826 /* FakeEdamamSession.swift */; };
 		C335CA352743A1E100799826 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335CA342743A1E100799826 /* FakeResponseData.swift */; };
-		C335CA372743A21D00799826 /* InfoForFakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335CA362743A21D00799826 /* InfoForFakeResponseData.swift */; };
+		C335CA392743FD1500799826 /* FakeNextRecipeAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = C335CA382743FD1500799826 /* FakeNextRecipeAPI.json */; };
 		C35E542B271ECC2900D1B6F6 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E542A271ECC2900D1B6F6 /* IngredientTableViewCell.swift */; };
 		C35E542D2721AEFB00D1B6F6 /* FavoriteRecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E542C2721AEFB00D1B6F6 /* FavoriteRecipesListViewController.swift */; };
 		C35E542F2722BDA000D1B6F6 /* FavoriteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E542E2722BDA000D1B6F6 /* FavoriteTableView.swift */; };
@@ -66,11 +66,11 @@
 		C335CA1F273EB85900799826 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C335CA282742C07B00799826 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		C335CA2A2742C0C500799826 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
-		C335CA2C2742C92700799826 /* FakeRecipeAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeRecipeAPI.json; sourceTree = "<group>"; };
+		C335CA2C2742C92700799826 /* FakeFirstRecipeAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeFirstRecipeAPI.json; sourceTree = "<group>"; };
 		C335CA3027439C4000799826 /* RequestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServiceTests.swift; sourceTree = "<group>"; };
 		C335CA322743A18800799826 /* FakeEdamamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeEdamamSession.swift; sourceTree = "<group>"; };
 		C335CA342743A1E100799826 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
-		C335CA362743A21D00799826 /* InfoForFakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoForFakeResponseData.swift; sourceTree = "<group>"; };
+		C335CA382743FD1500799826 /* FakeNextRecipeAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeNextRecipeAPI.json; sourceTree = "<group>"; };
 		C35E542A271ECC2900D1B6F6 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		C35E542C2721AEFB00D1B6F6 /* FavoriteRecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesListViewController.swift; sourceTree = "<group>"; };
 		C35E542E2722BDA000D1B6F6 /* FavoriteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableView.swift; sourceTree = "<group>"; };
@@ -157,10 +157,11 @@
 		C335CA2E27439BA200799826 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C335CA2C2742C92700799826 /* FakeRecipeAPI.json */,
+				C335CA2A2742C0C500799826 /* MockCoreDataStack.swift */,
+				C335CA2C2742C92700799826 /* FakeFirstRecipeAPI.json */,
+				C335CA382743FD1500799826 /* FakeNextRecipeAPI.json */,
 				C335CA322743A18800799826 /* FakeEdamamSession.swift */,
 				C335CA342743A1E100799826 /* FakeResponseData.swift */,
-				C335CA362743A21D00799826 /* InfoForFakeResponseData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -169,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				C335CA282742C07B00799826 /* CoreDataManagerTests.swift */,
-				C335CA2A2742C0C500799826 /* MockCoreDataStack.swift */,
 				C335CA3027439C4000799826 /* RequestServiceTests.swift */,
 			);
 			path = Model;
@@ -372,7 +372,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C335CA2D2742C92700799826 /* FakeRecipeAPI.json in Resources */,
+				C335CA392743FD1500799826 /* FakeNextRecipeAPI.json in Resources */,
+				C335CA2D2742C92700799826 /* FakeFirstRecipeAPI.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C335CA332743A18800799826 /* FakeEdamamSession.swift in Sources */,
-				C335CA372743A21D00799826 /* InfoForFakeResponseData.swift in Sources */,
 				C335CA292742C07B00799826 /* CoreDataManagerTests.swift in Sources */,
 				C335CA352743A1E100799826 /* FakeResponseData.swift in Sources */,
 				C335CA2B2742C0C500799826 /* MockCoreDataStack.swift in Sources */,
