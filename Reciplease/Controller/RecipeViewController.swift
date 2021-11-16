@@ -66,13 +66,19 @@ class RecipeViewController: UIViewController  {
 
     @IBAction func favoriteButton(_ sender: UIButton) {
         // if recipe already saved as favorite : delete from favorite
-        if self.coreDataManager?.isRecipeAlreadyFavorite(url: recipePassed!.url!) == true {
+//        if self.coreDataManager?.isRecipeAlreadyFavorite(url: recipePassed!.url!) == true {
+        if tabBarController?.selectedIndex == 1 {
+
             self.coreDataManager?.deleteFavoriteRecipe(url: recipePassed!.url!, title: recipePassed!.label!)
             favoriteButton.image = UIImage(systemName: "star")
             // if this RecipeView came from FavoriteRecipesList : came back to FavoriteRecipesList
             guard fromFavoriteList == true else {return}
             self.navigationController?.popToRootViewController(animated: true)
         
+            // Si icone tab bar favoris
+//            if tabBarController?.selectedIndex == 1 {
+//
+//            }
         // if recipe not already saved as favorite : add to favorite
         }else{
             self.coreDataManager?.addFavoriteRecipe(recipe: recipePassed!)
