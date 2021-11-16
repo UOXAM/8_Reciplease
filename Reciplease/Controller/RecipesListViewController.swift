@@ -21,8 +21,6 @@ class RecipesListViewController: UIViewController {
     var recipeList: RecipeApi?
     var recipeToPass: RecipeDetail?
     var isLoading = false
-//    var fromResults = 0
-//    var toResults = 20
     private let requestService = RequestService()
 
     
@@ -34,22 +32,19 @@ class RecipesListViewController: UIViewController {
         // TableViewCell take RecipeTableViewCell.xib as cell
         self.recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
     }
+}
     
+
+    //     MARK: - TableView
+    
+extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate {
+   
     // TableViewCell take RecipeTableViewCell.xib as cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipeList?.hits?.count ?? 0
     }
     
-    
-}
-
-
-    // MARK: - UITableViewDataSource
-    
-extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? RecipeTableViewCell {
             let recipe = recipeList?.hits?[indexPath.row].recipe
@@ -88,7 +83,6 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     // Tap on cell -> segue
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var recipe = recipeList?.hits?[indexPath.row].recipe
         recipe!.duration = String((recipe?.totalTime)!)
@@ -110,12 +104,9 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
 
     //     MARK: - Action
 
-    // ***** S'il reste des nouvelles recettes à afficher (si lien _links.next.href) alors
-    // -> relancer une requête réseau lorsqu'on scroll
-
+    // S'il reste des nouvelles recettes à afficher (si lien _links.next.href) -> relancer une requête réseau lorsqu'on scroll
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard recipeList?.links?.next?.href != nil && recipeList?.links?.next?.href != "" else { return }
-
         guard isLoading == false else { return }
         isLoading = true
         
@@ -123,9 +114,7 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
             self?.isLoading = false
 
             DispatchQueue.main.async {
-
                 switch result {
-                    
                 case .success(let recipeListToAdd):
                     self?.recipeList?.hits?.append(contentsOf: (recipeListToAdd.hits)!)
                     self?.recipesTableView.reloadData()
@@ -138,30 +127,7 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
                 case.failure(let error):
                     self?.showAlert(with: error.description)
                 }
-                
-//                self?.activityIndicator.stopAnimating()
-//                self?.searchForRecipesButton.isHidden = false
-//                self?.clearButton.isOpaque = false
-//                self?.addIngredientButton.isOpaque = false
             }
-            
         })
-        
-        
-        
-        
-        
-        
-        
-        
-        // ***** Lancer appel réseau en utilisant l'URL du retour API précédant _links.next.href ou avec fromResults et toResults
-        // Comment réussir à accéder dans API ? _links ?
-        
-        // ***** Ajouter les résultats à la suite de recipeList
-        
-        // ***** Changer _links.next.href par le lien du nouvel appel réseau
-        
-        // ***** S'il n'y a pas de
     }
-        
 }

@@ -19,14 +19,17 @@ class AddIngredientViewController: UIViewController {
     @IBOutlet weak var addIngredientButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var coreDataManager: CoreDataManager?
-
+    
     // MARK: - Properties
-
+    
+    private var coreDataManager: CoreDataManager?
     var ingredientsListArray: [String] = []
     private let requestService = RequestService()
     private var recipeList: RecipeApi? = nil
     private var ingredientsListToNetworkcall: String = ""
+
+    
+    // MARK: - View Did Load
 
     override func viewDidLoad() {
         super .viewDidLoad()
@@ -75,14 +78,10 @@ class AddIngredientViewController: UIViewController {
         clearButton.isOpaque = true
         addIngredientButton.isOpaque = true
         
-        
         // Launch Networkcall
         requestService.getData(ingredients: ingredientsListToNetworkcall) { [weak self] result in
-
             DispatchQueue.main.async {
-
                 switch result {
-                    
                 case .success(let recipeList):
                     self?.recipeList = recipeList
                     guard recipeList.count! > 0 else {
@@ -94,7 +93,6 @@ class AddIngredientViewController: UIViewController {
                 case.failure(let error):
                     self?.showAlert(with: error.description)
                 }
-                
                 self?.activityIndicator.stopAnimating()
                 self?.searchForRecipesButton.isHidden = false
                 self?.clearButton.isOpaque = false

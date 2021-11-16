@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rs7-5d-joI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rs7-5d-joI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -295,27 +296,24 @@
                                     <outlet property="delegate" destination="W2K-ho-t6u" id="kGW-UI-5ue"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9Me-fM-EAj">
-                                <rect key="frame" x="0.0" y="382" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete All"/>
-                                <connections>
-                                    <action selector="deleteButton:" destination="W2K-ho-t6u" eventType="touchUpInside" id="YRA-WZ-bgJ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z3C-PP-ucJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SZv-mG-B57" firstAttribute="top" secondItem="fqf-2s-0a6" secondAttribute="top" id="75e-XF-kG2"/>
                             <constraint firstItem="Z3C-PP-ucJ" firstAttribute="trailing" secondItem="SZv-mG-B57" secondAttribute="trailing" id="GPs-lz-nsw"/>
-                            <constraint firstItem="9Me-fM-EAj" firstAttribute="centerX" secondItem="SZv-mG-B57" secondAttribute="centerX" id="grS-fS-JXc"/>
                             <constraint firstItem="Z3C-PP-ucJ" firstAttribute="bottom" secondItem="SZv-mG-B57" secondAttribute="bottom" id="hDo-vx-DlB"/>
                             <constraint firstItem="SZv-mG-B57" firstAttribute="leading" secondItem="fqf-2s-0a6" secondAttribute="leading" id="zjU-dD-gYY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="7h7-XA-cdT">
                         <barButtonItem key="backBarButtonItem" title="Back" id="SgQ-76-6Kj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Delete All" image="trash" catalog="system" id="LN3-FG-Prq">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="deleteAll:" destination="W2K-ho-t6u" id="IlN-3b-j8l"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="favoriteRecipesTableView" destination="SZv-mG-B57" id="IkC-Hc-4wg"/>
@@ -470,7 +468,7 @@
                                                 <color key="sectionIndexBackgroundColor" red="0.2117646933" green="0.20000001789999999" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" id="ymu-ud-TYm" customClass="IngredientTableViewCell" customModule="Reciplease" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="374" height="47"/>
+                                                        <rect key="frame" x="0.0" y="44.5" width="374" height="47"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ymu-ud-TYm" id="bRd-yb-6fC">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="47"/>
@@ -554,12 +552,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0sj-so-qD8"/>
+        <segue reference="rew-fl-P0Q"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

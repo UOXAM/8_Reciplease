@@ -22,7 +22,6 @@ class FavoriteRecipesListViewController: UIViewController {
     private var coreDataManager: CoreDataManager?
     var favoriteRecipeToPass: RecipeDetail?
     
-
     
 //     MARK: - View Did Load
     
@@ -39,20 +38,39 @@ class FavoriteRecipesListViewController: UIViewController {
     }
     
     
-    @IBAction func deleteButton(_ sender: UIButton) {
-        coreDataManager?.deleteAllFavoriteRecipes()
-        favoriteRecipesTableView.reloadData()
-    }
-    
-    
-    
+    //     MARK: - View Will Appear
+
     override func viewWillAppear(_ animated: Bool) {
         favoriteRecipesTableView.reloadData()
     }
+
+    
+    //     MARK: - Action
+
+    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
+        guard (coreDataManager?.favoriteRecipes.count)! > 0 else {return}
+        confirmAlert()
+    }
+    
+    
+    //     MARK: - Function
+
+    func confirmAlert() {
+        let alertController: UIAlertController = .init(title: "Do you want to delete all favories ?", message: "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
+            coreDataManager?.deleteAllFavoriteRecipes()
+            favoriteRecipesTableView.reloadData()
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+    
+        present(alertController, animated: true)
+    }
+    
 }
 
 
-    // MARK: - UITableViewDataSource
+    // MARK: - TableView
     
 extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -61,8 +79,6 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
         return coreDataManager?.favoriteRecipes.count ?? 0
     }
     
-    
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? RecipeTableViewCell {
             let recipe = coreDataManager?.favoriteRecipes[indexPath.row]
@@ -105,8 +121,4 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
             successVC.fromFavoriteList = true
         }
     }
-    
-    
-    
-    
 }
