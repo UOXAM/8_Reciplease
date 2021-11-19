@@ -13,15 +13,6 @@ final class CoreDataManagerTests: XCTestCase {
 
     var coreDataStack: MockCoreDataStack!
     var coreDataManager: CoreDataManager!
-    func createRecipe() {
-        var recipe: RecipeDetail{
-        recipe.label = "Lemon Sorbet"
-        recipe.image = "https://www.edamam.com/web-img/78e/78ef0e463d0aadbf2caf7b6237cd5f12.jpg"
-        recipe.ingredientLines = ["500.0g caster sugar", "1 lemon , unwaxed, zested", "250 ml lemon juice (6-8 lemons)"]
-        recipe.totalTime = ""
-        recipe.url = "http://www.bbcgoodfood.com/recipes/4583/"
-    }
-    
 
     //MARK: - Tests Life Cycle
 
@@ -39,16 +30,67 @@ final class CoreDataManagerTests: XCTestCase {
 
     // MARK: - Tests
 
-//    func testAddTaskMethods_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
-//        coreDataManager.addFavoriteRecipe(recipe: <#T##RecipeDetail#>)
-//        XCTAssertTrue(!coreDataManager.tasks.isEmpty)
-//        XCTAssertTrue(coreDataManager.tasks.count == 1)
-//        XCTAssertTrue(coreDataManager.tasks[0].name! == "My Task")
-//    }
-//
-//    func testDeleteAllTasksMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
-//        coreDataManager.createTask(name: "My Task")
-//        coreDataManager.deleteAllTasks()
-//        XCTAssertTrue(coreDataManager.tasks.isEmpty)
-//    }
+    // Test of function addFavoriteRecipe
+    func testAddRecipeToFavorite_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
+        // Create 1 recipe and Save it in DataBase
+        let firstFakeRecipe = FakeRecipe()
+        coreDataManager.addFavoriteRecipe(recipe: firstFakeRecipe)
+        // Database is not empty, Contains 1 element and Recipe saved label is same as the one to save
+        XCTAssertTrue(!coreDataManager.favoriteRecipes.isEmpty)
+        XCTAssertTrue(coreDataManager.favoriteRecipes.count == 1)
+        XCTAssertTrue(coreDataManager.favoriteRecipes[0].label! == "Lemon Sorbet")
+    }
+    
+    // Test of function deleteAllFavoriteRecipes
+    func testDeleteAllFavoriteRecipes_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
+        let firstFakeRecipe = FakeRecipe()
+        let secondFakeRecipe = FakeRecipe()
+        secondFakeRecipe.url =  "https//www.edamam.com"
+        secondFakeRecipe.label = "Lemon Curd"
+        coreDataManager.addFavoriteRecipe(recipe: firstFakeRecipe)
+        coreDataManager.addFavoriteRecipe(recipe: secondFakeRecipe)
+        XCTAssertTrue(coreDataManager.favoriteRecipes.count == 2)
+
+        coreDataManager.deleteAllFavoriteRecipes()
+        XCTAssertTrue(coreDataManager.favoriteRecipes.isEmpty)
+    }
+    
+    // Test of function deleteFavoriteRecipe
+    func testDeleteRecipeFromFavorites_WhenAnEntityIsCreated_ThenRecipeShouldBeCorrectlyDeleted() {
+        // Create 2 different recipes, Saved them and Verify there are 2 recipes in DataBase
+        let firstFakeRecipe = FakeRecipe()
+        let secondFakeRecipe = FakeRecipe()
+        secondFakeRecipe.url =  "https//www.edamam.com"
+        secondFakeRecipe.label = "Lemon Curd"
+        coreDataManager.addFavoriteRecipe(recipe: firstFakeRecipe)
+        coreDataManager.addFavoriteRecipe(recipe: secondFakeRecipe)
+        XCTAssertTrue(coreDataManager.favoriteRecipes.count == 2)
+        
+        // Delete the first recipe
+        coreDataManager.deleteFavoriteRecipe(url: firstFakeRecipe.url!, title: firstFakeRecipe.label!)
+        
+        // Verify there is now 1 recipe in DataBase and its label is the same as secondFakeRecipe label
+        XCTAssertTrue(coreDataManager.favoriteRecipes.count == 1)
+        XCTAssertEqual(coreDataManager.favoriteRecipes[0].label, secondFakeRecipe.label)
+    }
+    
+    // Test of function isRecipeAlreadyFavorite
+    func testIfRecipeAlreadyInFavorite_WhenRecipeSavedInDataBase_ThenRecipeSouldBeFoundInDataBase() {
+        // Create 1 recipe and Save it in DataBase
+        let firstFakeRecipe = FakeRecipe()
+        coreDataManager.addFavoriteRecipe(recipe: firstFakeRecipe)
+        
+        // Verify recipe is already saved (recipe Url exist in database)
+        XCTAssertTrue(coreDataManager.isRecipeAlreadyFavorite(url: firstFakeRecipe.url!))
+    }
+    
+    // Test of function isRecipeAlreadyFavorite
+    func testIfRecipeAlreadyInFavorite_WhenRecipeNotSavedInDataBase_ThenRecipeSouldNotBeFoundInDataBase() {
+        // Create 1 recipe
+        let firstFakeRecipe = FakeRecipe()
+        
+        // Verify recipe does not exist in database (recipe Url does not exist in database)
+        XCTAssertFalse(coreDataManager.isRecipeAlreadyFavorite(url: firstFakeRecipe.url!))
+    }
+    
 }

@@ -52,12 +52,17 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
             // Fill the title label with the name of recipe
             cell.titleLabel?.text = recipe?.label
             
+            // Fill the duration
+            cell.timeLabel?.text = String((recipe?.totalTime)!)
+            
             // Fill the image with the image of recipe
             let imageUrl = NSURL(string: recipe!.image!)
             let imageData = NSData(contentsOf:imageUrl! as URL)
 
             if imageData != nil {
                 cell.recipeImage?.image = UIImage(data:imageData! as Data)
+            } else {
+                cell.recipeImage?.image = UIImage(imageLiteralResourceName: "recipeImageByDefault")
             }
 
             // Formate list of ingredients and fill description label with these list
@@ -98,7 +103,6 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
         if segue.identifier == "segueToRecipe" {
             let successVC = segue.destination as! RecipeViewController
             successVC.recipePassed = recipeToPass
-            successVC.fromFavoriteList = false
         }
     }
 

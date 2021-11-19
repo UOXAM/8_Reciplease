@@ -92,6 +92,8 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
             if imageData != nil {
                 cell.recipeImage?.image = UIImage(data:imageData! as Data)
                 
+            } else {
+                cell.recipeImage?.image = UIImage(imageLiteralResourceName: "recipeImageByDefault")
             }
             
             return cell
@@ -111,6 +113,24 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
         performSegue(withIdentifier: "segueToFavoriteRecipe", sender: nil)
     }
     
+    // Footer in tableView
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "No recipes already saved as favorite..."
+        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .white
+        return label
+    }
+    
+    // Footer not visible if list is not empty
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return coreDataManager?.favoriteRecipes.isEmpty ?? true ? 350
+        : 0
+    }
+
+
     
 //     MARK: - Prepare Segue
 
@@ -118,7 +138,6 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
         if segue.identifier == "segueToFavoriteRecipe" {
             let successVC = segue.destination as! RecipeViewController
             successVC.recipePassed = favoriteRecipeToPass
-            successVC.fromFavoriteList = true
         }
     }
 }

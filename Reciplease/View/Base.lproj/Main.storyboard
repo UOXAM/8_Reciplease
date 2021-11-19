@@ -76,9 +76,9 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's in your fridge ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae7-Il-1PX">
-                                                <rect key="frame" x="85.5" y="25" width="243" height="25"/>
+                                                <rect key="frame" x="57" y="25" width="300" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="IoO-l0-oJH"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="IoO-l0-oJH"/>
                                                     <constraint firstAttribute="height" constant="25" id="eC8-aA-JMq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
@@ -119,9 +119,9 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your ingredients :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxZ-PO-pha">
-                                                <rect key="frame" x="20" y="25" width="184.5" height="29"/>
+                                                <rect key="frame" x="20" y="25" width="200" height="29"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="IQT-cW-GWA"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="IQT-cW-GWA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -438,9 +438,9 @@
                                         <rect key="frame" x="0.0" y="254" width="414" height="471"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnx-eN-hhX">
-                                                <rect key="frame" x="20" y="25" width="128.5" height="29"/>
+                                                <rect key="frame" x="20" y="25" width="200" height="29"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="H4I-F7-Zgs"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="H4I-F7-Zgs"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -552,7 +552,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rew-fl-P0Q"/>
+        <segue reference="0sj-so-qD8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>

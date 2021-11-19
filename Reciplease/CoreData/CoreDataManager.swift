@@ -69,7 +69,6 @@ final class CoreDataManager {
 
         guard let counter = try? managedObjectContext.count(for: request) else { return false }
         return counter == 0 ? false : true
-
     }
 
 }
