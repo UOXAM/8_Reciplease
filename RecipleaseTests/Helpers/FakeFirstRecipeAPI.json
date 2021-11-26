@@ -4,7 +4,7 @@
     "count": 10000,
     "_links": {
         "next": {
-            "href": "https://api.edamam.com/api/recipes/v2?q=lemon&app_key=b4db2359b9f2a14e2980106b8eadeffa&_cont=CHcVQBtNNQphDmgVQntAEX4BYlBtAgAFQGdCA2sUZFJ7BwEVX3cTC2oTNgB2DQtWETNHBmpAYAR6AFYORjRBCjZAMVV0ABFqX3cWQT1OcV9xBB8VADQWVhFCPwoxXVZEITQeVDcBaR4-SQ%3D%3D&type=public&app_id=057c28a7",
+            "href": "https://api.edamam.com/api/recipes/v2?q=lemon&app_key=&_cont=CHcVQBtNNQphDmgVQntAEX4BYlBtAgAFQGdCA2sUZFJ7BwEVX3cTC2oTNgB2DQtWETNHBmpAYAR6AFYORjRBCjZAMVV0ABFqX3cWQT1OcV9xBB8VADQWVhFCPwoxXVZEITQeVDcBaR4-SQ%3D%3D&type=public&app_id=",
             "title": "Next page"
         }
     },
@@ -710,7 +710,7 @@
             },
             "_links": {
                 "self": {
-                    "href": "https://api.edamam.com/api/recipes/v2/9199ad45bd7fb16cda8d08c3e30771c2?type=public&app_id=057c28a7&app_key=b4db2359b9f2a14e2980106b8eadeffa",
+                    "href": "https://api.edamam.com/api/recipes/v2/9199ad45bd7fb16cda8d08c3e30771c2?type=public&app_id=&app_key=",
                     "title": "Self"
                 }
             }
