@@ -43,6 +43,7 @@ final class CoreDataManager {
         favoriteRecipe.duration = recipe.duration
         favoriteRecipe.date = Date()
         favoriteRecipe.image = recipe.image
+        favoriteRecipe.ingredientLabels = recipe.ingredientLabels
         coreDataStack.saveContext()
     }
 

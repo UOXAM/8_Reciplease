@@ -47,37 +47,27 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? RecipeTableViewCell {
-            let recipe = recipeList?.hits?[indexPath.row].recipe
+            var recipe = recipeList?.hits?[indexPath.row].recipe
             
-            // Fill the title label with the name of recipe
-            cell.titleLabel?.text = recipe?.label
+//          Fill the list of ingredients (ingredientLabels)
+            recipe?.ingredientLabels = []
+            for i in 0...(recipe?.ingredients?.count)!-1 {
+                let ingredient = (String?((recipe?.ingredients?[i].food)!)!.firstUppercased)!
+                recipe?.ingredientLabels?.append(ingredient)
+            }
             
             // Fill the duration
-            cell.timeLabel?.text = String((recipe?.totalTime)!)
+            let duration = String((recipe?.totalTime)!)
+            recipe?.duration = duration
             
-            // Fill the image with the image of recipe
-            let imageUrl = NSURL(string: recipe!.image!)
-            let imageData = NSData(contentsOf:imageUrl! as URL)
-
-            if imageData != nil {
-                cell.recipeImage?.image = UIImage(data:imageData! as Data)
-            } else {
-                cell.recipeImage?.image = UIImage(imageLiteralResourceName: "recipeImageByDefault")
-            }
-
-            // Formate list of ingredients and fill description label with these list
-            var listOfIngredients: String = ""
-            for i in 0...(recipe?.ingredients?.count)!-1 {
-                if listOfIngredients == "" {
-                    listOfIngredients = (String?((recipe?.ingredients?[i].food)!)!.firstUppercased)!
-                } else {
-                    listOfIngredients = "\(listOfIngredients), " + (String?((recipe?.ingredients?[i].food)!)!.firstUppercased)!
-                }
-            }
-            cell.descriptionLabel?.text = listOfIngredients
-
+            // Save duration and the list of ingredients (ingredientLabels) in the API response
+            recipeList?.hits?[indexPath.row].recipe = recipe
+            
+            // Send recipe to cell.xib
+            cell.recipe = recipe
+            
             return cell
-            }
+        }
 
         return UITableViewCell()
     }
@@ -89,10 +79,7 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
     
     // Tap on cell -> segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var recipe = recipeList?.hits?[indexPath.row].recipe
-        let duration = recipe?.totalTime
-        recipe?.duration = String(duration!)
-        recipeToPass = recipe
+        recipeToPass = recipeList?.hits?[indexPath.row].recipe
         performSegue(withIdentifier: "segueToRecipe", sender: nil)
     }
     

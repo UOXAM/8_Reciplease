@@ -29,7 +29,7 @@ struct Links: Decodable {
 
 // MARK: - Hit
 struct Hit: Decodable {
-    let recipe: Recipe?
+    var recipe: Recipe?
     let links: HitLinks?
 
     enum CodingKeys: String, CodingKey {
@@ -67,6 +67,7 @@ struct Recipe: Decodable, RecipeDetail {
     var ingredients: [Ingredient]?
     var totalTime: Int?
     var duration: String?
+    var ingredientLabels: [String]?
 }
 
 //struct Recipe: Decodable {

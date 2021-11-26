@@ -14,6 +14,7 @@ protocol RecipeDetail {
     var ingredientLines: [String]? { get set }
     var duration: String? { get set }
     var url: String? { get set }
+    var ingredientLabels: [String]? { get set }
 
 }
 

@@ -82,20 +82,8 @@ extension FavoriteRecipesListViewController: UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? RecipeTableViewCell {
             let recipe = coreDataManager?.favoriteRecipes[indexPath.row]
-            
-            // Fill the title label with the name of recipe
-            cell.titleLabel?.text = recipe?.label
-            
-            // Fill the image with the image of recipe
-            let imageUrl = NSURL(string: (recipe?.image)!)
-            let imageData = NSData(contentsOf:imageUrl! as URL)
-            if imageData != nil {
-                cell.recipeImage?.image = UIImage(data:imageData! as Data)
-                
-            } else {
-                cell.recipeImage?.image = UIImage(imageLiteralResourceName: "recipeImageByDefault")
-            }
-            
+            cell.recipe = recipe
+
             return cell
         }
         return UITableViewCell()

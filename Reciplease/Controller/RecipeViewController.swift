@@ -7,8 +7,7 @@
 
 import UIKit
 
-
-class RecipeViewController: UIViewController  {
+class RecipeViewController: UIViewController {
 
     
     // MARK: - Outlets
@@ -18,13 +17,16 @@ class RecipeViewController: UIViewController  {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var ingredientCell: UITableViewCell!
+    @IBOutlet weak var timeView: UIView!
+    @IBOutlet weak var scoreAndTimeView: UIView!
+    
     
     
     // MARK: - Properties
 
     private var coreDataManager: CoreDataManager?
     var recipePassed: RecipeDetail?
+    
     
     
     //     MARK: - View Did Load
@@ -34,8 +36,11 @@ class RecipeViewController: UIViewController  {
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coredataStack = appdelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coredataStack)
+        view.borderFormatting(element: timeView)
+//        print(recipePassed?.ingredientLabels)
+//        print(coreDataManager?.favoriteRecipes[0])
     }
-    
+
     
     //     MARK: - View Will Appear
     
@@ -49,17 +54,25 @@ class RecipeViewController: UIViewController  {
         
         // Fill infos of recipe
         titleLabel.text = recipePassed?.label
-        timeLabel.text = recipePassed?.duration
+        
+        // Fill the duration if != 0 or nil
+        if recipePassed?.duration == "0" || recipePassed?.duration == nil {
+            scoreAndTimeView.isHidden = true
+        } else {
+            timeLabel?.text = "\(String(describing: (recipePassed?.duration)!)) min"
+            scoreAndTimeView.isHidden = false
+        }
 
         // Fill the image with the image of recipe
         let imageUrl = NSURL(string: recipePassed!.image!)
         let imageData = NSData(contentsOf:imageUrl! as URL)
+        recipeImage.image = UIImage(data:imageData! as Data)
 
-        if imageData != nil {
-            recipeImage.image = UIImage(data:imageData! as Data)
-        } else {
-            recipeImage.image = UIImage(imageLiteralResourceName: "recipeImageByDefault")
-        }
+//        if imageData != nil {
+//            recipeImage.image = UIImage(data:imageData! as Data)
+//        } else {
+//            recipeImage.image = UIImage(imageLiteralResourceName: "recipeImageByDefault")
+//        }
     }
     
     
@@ -78,7 +91,7 @@ class RecipeViewController: UIViewController  {
             self.navigationController?.popToRootViewController(animated: true)
         
         // if recipe not already saved as favorite : add to favorite
-        }else{
+        } else {
             self.coreDataManager?.addFavoriteRecipe(recipe: recipePassed!)
             favoriteButton.image = UIImage(systemName: "star.fill")
         }
