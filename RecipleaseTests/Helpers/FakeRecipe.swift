@@ -10,6 +10,8 @@ import Foundation
 
 class FakeRecipe: RecipeDetail {
     
+    var ingredientLabels: [String]? = ["Sugar", "Lemon", "Lemon juice"]
+    
     var label: String? = "Lemon Sorbet"
     
     var image: String? = "https://www.edamam.com/web-img/78e/78ef0e463d0aadbf2caf7b6237cd5f12.jpg"
@@ -21,10 +23,3 @@ class FakeRecipe: RecipeDetail {
     var url: String? = "http://www.bbcgoodfood.com/recipes/4583/"
 
 }
-
-//class Test {
-//    let recipe1 = FakeRecipe()
-//    var recipe2 = FakeRecipe()
-//    recipe2.url =  "https//www.edamam.com"
-//    recipe2.label = "Lemon Curd"
-//}
