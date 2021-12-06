@@ -37,6 +37,9 @@ class AddIngredientViewController: UIViewController {
         buttonFormatting(button: clearButton)
         buttonFormatting(button: searchForRecipesButton)
         buttonFormatting(button: addIngredientButton)
+        // Dismiss Keybpard
+        self.hideKeyboardWhenTappedAround()
+
     }
       
     // MARK: - Actions

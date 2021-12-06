@@ -46,6 +46,7 @@
 		C3806D252712D876007D11E9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D242712D876007D11E9 /* UIView.swift */; };
 		C3806D2727138381007D11E9 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D2627138381007D11E9 /* RecipeViewController.swift */; };
 		C3806D29271627B7007D11E9 /* EdamamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3806D28271627B7007D11E9 /* EdamamSession.swift */; };
+		C3858D60275E027000750FE8 /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3858D5F275E027000750FE8 /* DismissKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		C3806D242712D876007D11E9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C3806D2627138381007D11E9 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		C3806D28271627B7007D11E9 /* EdamamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSession.swift; sourceTree = "<group>"; };
+		C3858D5F275E027000750FE8 /* DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
 		DC9D2253B46836E88A1B8448 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		F77C4262602EF7932039DEBE /* Pods_RecipleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				C3806D0A270A499B007D11E9 /* URLSession+GenericCall.swift */,
+				C3858D5F275E027000750FE8 /* DismissKeyboard.swift */,
 				C3806D14270A4CD4007D11E9 /* URLEncodable.swift */,
 				C3806D18270B40B5007D11E9 /* UIViewController+Alert.swift */,
 				C3806D1E270C89D9007D11E9 /* String.swift */,
@@ -498,6 +501,7 @@
 				C3806D0E270A49F5007D11E9 /* NetworkError.swift in Sources */,
 				C3806D1F270C89D9007D11E9 /* String.swift in Sources */,
 				C31E736E272B25EC00F960FD /* RecipeDetail.swift in Sources */,
+				C3858D60275E027000750FE8 /* DismissKeyboard.swift in Sources */,
 				C3806D10270A4A29007D11E9 /* NetworkLogger.swift in Sources */,
 				C3806D1C270C45D7007D11E9 /* RecipeTableViewCell.swift in Sources */,
 			);

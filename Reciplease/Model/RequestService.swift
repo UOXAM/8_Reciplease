@@ -13,7 +13,6 @@ extension RequestService: UrlEncodable {}
 final class RequestService {
 
     // MARK: - Properties
-    // MARK: - Properties
 
     private let baseUrl: String = "https://api.edamam.com/api/recipes/v2"
     private let type = ("type", "public")
